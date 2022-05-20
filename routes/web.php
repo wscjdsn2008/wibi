@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
-
+use App\Http\Controllers\Admin\TestController as AdminTestControlle;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,3 +37,11 @@ Route::get('test5/fn', [TestController::class, 'lst']);
 Route::get('/test6/', function () {
     return "路由别名";
 })->name('t6');
+// Route::prefix('admin')->group(function () {
+    
+// });
+Route::get('test',[AdminTestControlle::class,'test']);
+Route::get('add',[AdminTestControlle::class,'add']);
+Route::get('del',[AdminTestControlle::class,'del']);
+Route::get('mod',[AdminTestControlle::class,'mod']);
+Route::get('select',[AdminTestControlle::class,'select']);
