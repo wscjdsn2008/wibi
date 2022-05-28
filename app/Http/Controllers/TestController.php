@@ -9,6 +9,6 @@ class TestController extends Controller
     public function test()
     {
        
-      return ' 这是TestController的test hhh';
+      return ' 这是TestController的test hhhhhhhhhh';
     }
 }
