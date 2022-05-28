@@ -8,8 +8,7 @@ use DB;
 class TestController extends Controller
 {
     public function test(Request $request){
-      echo($request->input('addr'));
-      dd($request->all());
+      
       return ' 这是admin下的TestController的test';
     }
     public function select(){
@@ -24,6 +23,8 @@ class TestController extends Controller
     public function add(){
         $data=['username'=>'hh','password'=>'123','email'=>'fdsafds@fda.com','nickname'=>'小花'];
        return  DB::table('admin')->insert($data);
+       
     }
+    
     
 }
