@@ -1,4 +1,4 @@
-小皮系统 Nginx 伪静态需添加如下代码:
+
 
 location / {
     try_files $uri $uri/ /index.php?$query_string;
