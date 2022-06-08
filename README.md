@@ -1,9 +1,11 @@
-222
+npm update vue-loader
+npm install && npm run dev
 
 location / {
     try_files $uri $uri/ /index.php?$query_string;
 }
-
+当 @section 传递了第二个参数时，便不需要再通过 @stop 标识来告诉 Laravel 填充区
+块会在具体哪个位置结束。
 
 php artisan make:controller CommentController --invokable
 

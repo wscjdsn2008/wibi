@@ -4,9 +4,10 @@
 //use App\Http\Controllers\Admin\TestController as AdminTestController;
 //use App\Http\Controllers\TestController;
 
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\IndexController;
+// use App\Http\Controllers\BlogController;
+// use App\Http\Controllers\CommentController;
+// use App\Http\Controllers\IndexController;
+use App\Http\Controllers\StaticPagesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,25 +21,32 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//博客首页放在一个单独的控制器中
-Route::get('/', [IndexController::class,'index'])->name('index');
-//为资源路由补充了一个修改博客状态的路由
-Route::patch('blog/{id}', [BlogController::class,'status'])->name('blog.status');
-Route::resource('blog', BlogController::class)->except(['index']);
 
-//为用户单独定义路由，此处没有用资源路由。
-//用户信息
-Route::get('user', [UserController::class,'infoPage'])->name('user.info');
-//更新用户信息
-Route::put('user', [UserController::class,'update'])->name('user.infoUpdate');
-//用户头像
-Route::get('user/avatar', [UserController::class,'avatarPage'])->name('user.avatar');
-//更新用户头像
-Route::put('user/avatar', [UserController::class,'avatarUpdate'])->name('user.avatar.update');
-//用户所有博客
-Route::get('user/blog', [UserController::class,'blog'])->name('user.blog');
-//评论
-Route::post('blog/{id}/comment', [CommentController::class])->name('blog.comment');
+Route::get('/', [StaticPagesController::class,'home']);
+Route::get('/help',  [StaticPagesController::class,'help'])->name('help');
+Route::get('/about',  [StaticPagesController::class,'about'])->name('about');
+Route::get('/tail', [StaticPagesController::class,'tail'])->name('tail');
+Route::get('signup', [UserController::class,'create'])->name('signup');
+Route::resource('user', UserController::class);
+//博客首页放在一个单独的控制器中
+// Route::get('/', [IndexController::class,'index'])->name('index');
+// //为资源路由补充了一个修改博客状态的路由
+// Route::patch('blog/{id}', [BlogController::class,'status'])->name('blog.status');
+// Route::resource('blog', BlogController::class)->except(['index']);
+
+// //为用户单独定义路由，此处没有用资源路由。
+// //用户信息
+// Route::get('user', [UserController::class,'infoPage'])->name('user.info');
+// //更新用户信息
+// Route::put('user', [UserController::class,'update'])->name('user.infoUpdate');
+// //用户头像
+// Route::get('user/avatar', [UserController::class,'avatarPage'])->name('user.avatar');
+// //更新用户头像
+// Route::put('user/avatar', [UserController::class,'avatarUpdate'])->name('user.avatar.update');
+// //用户所有博客
+// Route::get('user/blog', [UserController::class,'blog'])->name('user.blog');
+// //评论
+// Route::post('blog/{id}/comment', [CommentController::class])->name('blog.comment');
 
 
 // Route::get('/index', function () {
